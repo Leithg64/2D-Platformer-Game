@@ -1,7 +1,19 @@
-/* styles.css */
 body {
     margin: 0;
     overflow: hidden;
+}
+
+.title-text {
+    text-align: center;
+}
+
+#start-button {
+    text-align: center;
+    display: block;
+}
+
+#start-menu {   
+    padding-top: 250px;
 }
 
 #gameContainer {
@@ -13,13 +25,30 @@ body {
 
 #player {
     position: absolute;
-    width: 80px;
-    height: 50px;
-    background-image: url("./img/slime.png");
-    background-size: cover;
+    width: 40px;
+    height: 40px;
+    background-color: #ADD8E6;
+    border: 3px solid blue;
+}
+
+#enemy {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #C30010;
+    border: 3px solid black;
+    animation: enemy 3s infinite linear; 
+}
+
+@keyframes enemy {
+    0% {left: 1120px;}
+    100% {left: 1550px;}
+    0% {left: 1120px;}
 }
 
 .platform {
     position: absolute;
     background-color: #4f3a2b;
+    border-top: 5px solid lightgreen;
 }
+

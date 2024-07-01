@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const player = document.getElementById("player");
+    const enemy = document.getElementById("enemy");
     const gameContainer = document.getElementById("gameContainer");
     const platforms = document.getElementsByClassName("platform");
 
@@ -17,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     let playerState = {
-        x: 100,
+        x: 150,
         y: 100,
         xVelocity: 0,
         yVelocity: 0,
