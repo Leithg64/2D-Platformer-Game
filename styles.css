@@ -12,10 +12,10 @@ body {
 
 #gameContainer {
     position: absolute;
-    width: 250vw; /* Make it wide enough */
+    width: 350vw; /* Make it wide enough */
     height: 100vh;
     background-color: #228B22;
-    background-size: 3000px;
+    background-size: 5000px;
 }
 
 #player {
@@ -56,6 +56,15 @@ body {
 @keyframes enemy2 {
     0% { left: 2450px; }
     100% { left: 2900px; }
+}
+
+#end-goal {
+    left: 4700px;
+    top: 75px;
+    width: 60px;
+    height: 120px;
+    background-color: #886fac;
+    border: 15px solid darkslategrey;
 }
 
 .platform {
