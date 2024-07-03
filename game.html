@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2D Platformer Game</title>
+    <title>2D Platformer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="viewport">
         <div id="gameContainer">
             <div id="player"></div>
-            <div id="hazard" style="left: 1120px; top: 374px; width: 20px; height: px;"></div>
+            <div class="hazard" id="enemy1"></div>
+            <div class="hazard" id="enemy2"></div>
             <div class="platform" id="wall1"></div>
             <div class="platform" id="floor1"></div>
             <div class="platform" id="floor2"></div>
@@ -18,15 +19,19 @@
             <div class="platform" id="floor4"></div>
             <div class="platform" id="plat1"></div>
             <div class="platform" id="plat2"></div>
-            <div class="platform" id="plat3"></div> 
+            <div class="platform" id="plat3"></div>
             <div class="platform" id="plat4"></div>
             <div class="platform" id="plat5"></div>
             <div class="platform" id="plat6"></div>
             <div class="platform" id="plat7"></div>
             <div class="platform" id="plat8"></div>
             <div class="platform" id="plat9"></div>
+            <div class="platform" id="plat10"></div>
+            <div class="platform" id="plat11"></div>
+            <div class="platform moving-vertical" id="movingPlatform"></div>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
+

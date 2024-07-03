@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #228B22;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h2 {
+    text-align: center;
+}
+
+#start-button {
+    text-align: center;
+    display: block;
+}
+
+#start-menu {   
+    padding-top: 250px;
+}
+
+

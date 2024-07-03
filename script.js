@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const gameContainer = document.getElementById("gameContainer");
     const viewport = document.getElementById("viewport");
     const platforms = document.getElementsByClassName("platform");
-    const hazard = document.getElementById("hazard");
+    const hazards = document.getElementsByClassName("hazard"); // Updated to get elements by class
 
     const keys = {
         left: false,
@@ -71,14 +71,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Reset the player if they collide with a hazard
-        let hazardRect = hazard.getBoundingClientRect();
         let playerRect = player.getBoundingClientRect();
+        for (let i = 0; i < hazards.length; i++) {
+            let hazard = hazards[i];
+            let hazardRect = hazard.getBoundingClientRect();
 
-        if (playerRect.right > hazardRect.left && 
-            playerRect.left < hazardRect.right && 
-            playerRect.bottom > hazardRect.top && 
-            playerRect.top < hazardRect.bottom) {
-            resetPlayer();
+            if (playerRect.right > hazardRect.left && 
+                playerRect.left < hazardRect.right && 
+                playerRect.bottom > hazardRect.top && 
+                playerRect.top < hazardRect.bottom) {
+                resetPlayer();
+            }
         }
 
         // Reset player if they fall out of the game container
