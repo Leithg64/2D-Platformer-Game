@@ -3,24 +3,19 @@ body {
     overflow: hidden;
 }
 
-.title-text {
-    text-align: center;
-}
-
-#start-button {
-    text-align: center;
-    display: block;
-}
-
-#start-menu {   
-    padding-top: 250px;
+#viewport {
+    width: 100vw; /* Ensure the viewport takes the full width of the screen */
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
 }
 
 #gameContainer {
-    position: relative;
-    width: 100vw;
+    position: absolute;
+    width: 200vw; /* Make it wide enough */
     height: 100vh;
     background-color: #228B22;
+    background-size: 200vw;
 }
 
 #player {
@@ -29,15 +24,16 @@ body {
     height: 40px;
     background-color: #ADD8E6;
     border: 3px solid blue;
+    border-radius: 25px 25px 10px 10px;
 }
 
-#enemy {
+#hazard {
     position: absolute;
     width: 20px;
     height: 20px;
     background-color: #C30010;
     border: 3px solid black;
-    animation: enemy 3s infinite linear; 
+    animation: enemy 1s infinite linear; 
     animation-direction: alternate; 
 }
 
@@ -50,5 +46,116 @@ body {
     position: absolute;
     background-color: #4f3a2b;
     border-top: 5px solid lightgreen;
+}
+
+.platform, #wall1 {
+    left: 0px; 
+    top: 600px; 
+    width: 20px; 
+    height: 300px;
+}
+
+.platform, #floor1 {
+    left: 0px; 
+    top:880px; 
+    width: 1100px; 
+    height: 50px;
+}
+
+.platform, #floor2 {
+    left: 1780px; 
+    top:880px; 
+    width: 100px; 
+    height: 50px;
+}
+
+.platform, #floor3 {
+    left: 2135px; 
+    top:880px; 
+    width: 50px; 
+    height: 50px;
+}
+
+.platform, #floor4 {
+    left: 2400px; 
+    top:880px; 
+    width: 1400px; 
+    height: 50px;
+}
+
+.platform, #plat1 {
+    left: 470px; 
+    top: 800px; 
+    width: 150px; 
+    height: 30px;
+}
+
+.platform, #plat2 {
+    left: 540px; 
+    top: 585px; 
+    width: 200px; 
+    height: 30px;
+}
+
+.platform, #plat3 {
+    left: 780px; 
+    top: 490px; 
+    width: 40px; 
+    height: 30px;
+}
+
+.platform, #plat4 {
+    left: 790px; 
+    top: 700px; 
+    width: 100px; 
+    height: 30px;
+}
+
+.platform, #plat5 {
+    left: 900px; 
+    top: 450px; 
+    width: 40px; 
+    height: 30px;
+}
+
+.platform, #plat6 {
+    left: 1100px; 
+    top: 400px; 
+    width: 540px; 
+    height: 30px;
+}
+
+.platform, #plat7 {
+    left: 1780px; 
+    top: 520px; 
+    width: 100px; 
+    height: 30px;
+}
+
+.platform, #plat8 {
+    left: 1780px; 
+    top: 640px; 
+    width: 100px; 
+    height: 30px;
+}
+
+.platform, #plat9 {
+    left: 1780px; 
+    top: 760px; 
+    width: 100px; 
+    height: 30px;
+}
+
+.title-text {
+    text-align: center;
+}
+
+#start-button {
+    text-align: center;
+    display: block;
+}
+
+#start-menu {   
+    padding-top: 250px;
 }
 

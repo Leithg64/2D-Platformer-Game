@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
     const player = document.getElementById("player");
-    const enemy = document.getElementById("enemy");
     const gameContainer = document.getElementById("gameContainer");
+    const viewport = document.getElementById("viewport");
     const platforms = document.getElementsByClassName("platform");
+    const hazard = document.getElementById("hazard");
 
     const keys = {
         left: false,
@@ -22,8 +23,17 @@ document.addEventListener("DOMContentLoaded", function() {
         y: 100,
         xVelocity: 0,
         yVelocity: 0,
-        onGround: false
+        onGround: false,
+        canJump: true  // Flag to track if player can jump
     };
+
+    function resetPlayer() {
+        playerState.x = 100;
+        playerState.y = 100;
+        playerState.xVelocity = 0;
+        playerState.yVelocity = 0;
+        gameContainer.style.transform = 'translateX(0px)';
+    }
 
     function update() {
         // Apply gravity
@@ -31,14 +41,14 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Apply horizontal movement
         if (keys.left) playerState.xVelocity = -settings.moveSpeed;
-        if (keys.right) playerState.xVelocity = settings.moveSpeed;
-        if (!keys.left && !keys.right) playerState.xVelocity *= settings.friction;
+        else if (keys.right) playerState.xVelocity = settings.moveSpeed;
+        else playerState.xVelocity *= settings.friction;
         
         // Update player position
         playerState.x += playerState.xVelocity;
         playerState.y += playerState.yVelocity;
 
-        // Collision detection
+        // Collision detection with platforms
         playerState.onGround = false;
         for (let i = 0; i < platforms.length; i++) {
             let platform = platforms[i];
@@ -55,20 +65,37 @@ document.addEventListener("DOMContentLoaded", function() {
                     playerState.y = platformRect.top - playerRect.height;
                     playerState.yVelocity = 0;
                     playerState.onGround = true;
+                    playerState.canJump = true; // Allow jumping when on ground
                 }
             }
         }
 
-        // Prevent player from falling out of the game container
-        if (playerState.y + player.offsetHeight > gameContainer.offsetHeight) {
-            playerState.y = gameContainer.offsetHeight - player.offsetHeight;
-            playerState.yVelocity = 0;
-            playerState.onGround = true;
+        // Reset the player if they collide with a hazard
+        let hazardRect = hazard.getBoundingClientRect();
+        let playerRect = player.getBoundingClientRect();
+
+        if (playerRect.right > hazardRect.left && 
+            playerRect.left < hazardRect.right && 
+            playerRect.bottom > hazardRect.top && 
+            playerRect.top < hazardRect.bottom) {
+            resetPlayer();
         }
 
-        // Prevent player from moving out of the game container horizontally
-        if (playerState.x < 0) playerState.x = 0;
-        if (playerState.x + player.offsetWidth > gameContainer.offsetWidth) playerState.x = gameContainer.offsetWidth - player.offsetWidth;
+        // Reset player if they fall out of the game container
+        if (playerState.y + player.offsetHeight > gameContainer.offsetHeight || 
+            playerState.x + player.offsetWidth < 0 || playerState.x > gameContainer.offsetWidth) {
+            resetPlayer();
+        }
+
+        // Scroll the viewport with the player
+        const viewportWidth = viewport.offsetWidth;
+        const scrollThreshold = viewportWidth * 0.4;  // 40% of the screen width
+
+        if (playerState.x > scrollThreshold) {
+            gameContainer.style.transform = `translateX(${scrollThreshold - playerState.x}px)`;
+        } else {
+            gameContainer.style.transform = 'translateX(0px)';
+        }
 
         // Update player element position
         player.style.left = playerState.x + "px";
@@ -80,9 +107,11 @@ document.addEventListener("DOMContentLoaded", function() {
     function keyDownHandler(e) {
         if (e.key === "ArrowLeft") keys.left = true;
         if (e.key === "ArrowRight") keys.right = true;
-        if (e.key === "ArrowUp" && playerState.onGround) {
+        if (e.key === "ArrowUp" && playerState.canJump) {
             keys.up = true;
             playerState.yVelocity = -settings.jumpStrength;
+            playerState.onGround = false; // Ensure we don't double jump accidentally
+            playerState.canJump = false;  // Prevent consecutive jumps
         }
     }
 
