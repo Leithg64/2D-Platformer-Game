@@ -222,3 +222,57 @@ body {
     background-color: #4f3a2b;
     border-top: 5px solid lightgreen;
 }
+
+#plat12 {
+    left: 3350px;
+    top: 720px;
+    width: 40px;
+    height: 30px;
+    background-color: grey;
+    border: 5px solid darkslategrey;
+}
+
+#plat13 {
+    left: 3550px;
+    top: 620px;
+    width: 40px;
+    height: 30px;
+    background-color: grey;
+    border: 5px solid darkslategrey;
+}
+
+#plat14 {
+    left: 3750px;
+    top: 520px;
+    width: 40px;
+    height: 30px;
+    background-color: grey;
+    border: 5px solid darkslategrey;
+}
+
+#plat15 {
+    left: 3950px;
+    top: 420px;
+    width: 40px;
+    height: 30px;
+    background-color: grey;
+    border: 5px solid darkslategrey;
+}
+
+#plat16 {
+    left: 4150px;
+    top: 320px;
+    width: 40px;
+    height: 30px;
+    background-color: grey;
+    border: 5px solid darkslategrey;
+}
+
+#plat17 {
+    left: 4350px;
+    top: 220px;
+    width: 500px;
+    height: 30px;
+    background-color: grey;
+    border: 5px solid darkslategrey;
+}
