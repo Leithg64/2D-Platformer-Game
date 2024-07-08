@@ -15,29 +15,35 @@ body {
     width: 350vw; /* Make it wide enough */
     height: 100vh;
     background-color: #228B22;
-    background-size: 5000px;
+    background-image: url("img/2dpf_background2.png");
+    background-size: cover;
+    
 }
 
 #player {
     position: absolute;
-    width: 40px;
-    height: 40px;
-    background-color: #ADD8E6;
-    border: 3px solid blue;
+    width: 60px;
+    height: 60px;
+    /* background-color: #ADD8E6;
+    border: 3px solid blue; */
     border-radius: 25px 25px 10px 10px;
+    background-image: url("img/slime_down.png");
+    background-size: cover;
 }
 
 .hazard {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: #C30010;
-    border: 3px solid black;
+    width: 50px;
+    height: 50px;
+    /* background-color: #C30010;
+    border: 3px solid black; */
+    background-image: url("img/enemy.png");
+    background-size: cover;
 }
 
 #enemy1 {
     left: 1120px;
-    top: 364px;
+    top: 355px;
     animation: enemy1 1s infinite linear;
     animation-direction: alternate;
 }
@@ -48,7 +54,7 @@ body {
 }
 
 #enemy2 {
-    top: 844px;
+    top: 834px;
     animation: enemy2 1s infinite linear;
     animation-direction: alternate;
 }
@@ -58,43 +64,19 @@ body {
     100% { left: 2900px; }
 }
 
-#end-goal {
+#goal {
+    /* background-color: #886fac;
+    border: 15px solid darkslategrey; */
     left: 4700px;
     top: 75px;
     width: 60px;
     height: 120px;
-    background-color: #886fac;
-    border: 15px solid darkslategrey;
+    background-image: url("img/portal.png");
+    background-size: cover;
 }
 
 .platform {
     position: absolute;
-}
-
-/* .moving-vertical {
-    left: 3450px;
-    top: 765px;
-    width: 150px;
-    height: 30px;
-    background-color: grey;
-    border: 5px solid darkslategrey;
-    animation: moveVertical 5s infinite linear;
-    animation-direction: alternate;
-}
-
-@keyframes moveVertical {
-    0% { top: 765px; }
-    50% { top: 565px; }
-    100% { top: 365px; }
-} */
-
-#wall1 {
-    left: 0px;
-    top: 600px;
-    width: 20px;
-    height: 300px;
-    background-color: #4f3a2b;
-    border-top: 5px solid lightgreen;
 }
 
 #floor1 {
@@ -102,8 +84,10 @@ body {
     top: 880px;
     width: 1000px;
     height: 50px;
-    background-color: #4f3a2b;
-    border-top: 5px solid lightgreen;
+    /* background-color: #4f3a2b;
+    border-top: 5px solid lightgreen; */
+    background-image: url("img/floor_big.png");
+    background-size: cover;
 }
 
 #floor2 {
@@ -111,8 +95,10 @@ body {
     top: 880px;
     width: 100px;
     height: 50px;
-    background-color: #4f3a2b;
-    border-top: 5px solid lightgreen;
+    /* background-color: #4f3a2b;
+    border-top: 5px solid lightgreen; */
+    background-image: url("img/floor_small.png");
+    background-size: cover;
 }
 
 #floor3 {
@@ -120,8 +106,10 @@ body {
     top: 880px;
     width: 50px;
     height: 50px;
-    background-color: #4f3a2b;
-    border-top: 5px solid lightgreen;
+    /* background-color: #4f3a2b;
+    border-top: 5px solid lightgreen; */
+    background-image: url("img/floor_small.png");
+    background-size: cover;
 }
 
 #floor4 {
@@ -129,8 +117,10 @@ body {
     top: 880px;
     width: 900px;
     height: 50px;
-    background-color: #4f3a2b;
-    border-top: 5px solid lightgreen;
+    /* background-color: #4f3a2b;
+    border-top: 5px solid lightgreen; */
+    background-image: url("img/floor_big.png");
+    background-size: cover;
 }
 
 #plat1 {
@@ -138,8 +128,10 @@ body {
     top: 800px;
     width: 150px;
     height: 30px;
-    background-color: grey;
-    border: 5px solid darkslategrey;
+    /* background-color: grey;
+    border: 5px solid darkslategrey; */
+    background-image: url("img/plat_med.png");
+    background-size: cover;
 }
 
 #plat2 {
@@ -147,8 +139,10 @@ body {
     top: 585px;
     width: 200px;
     height: 30px;
-    background-color: grey;
-    border: 5px solid darkslategrey;
+    /* background-color: grey;
+    border: 5px solid darkslategrey; */
+    background-image: url("img/plat_med.png");
+    background-size: cover;
 }
 
 #plat3 {
@@ -156,8 +150,10 @@ body {
     top: 490px;
     width: 40px;
     height: 30px;
-    background-color: grey;
-    border: 5px solid darkslategrey;
+    /* background-color: grey;
+    border: 5px solid darkslategrey; */
+    background-image: url("img/plat_sml.png");
+    background-size: cover;
 }
 
 #plat4 {
@@ -165,8 +161,10 @@ body {
     top: 700px;
     width: 100px;
     height: 30px;
-    background-color: grey;
-    border: 5px solid darkslategrey;
+    /* background-color: grey;
+    border: 5px solid darkslategrey; */
+    background-image: url("img/plat_med.png");
+    background-size: cover;
 }
 
 #plat5 {
@@ -174,8 +172,10 @@ body {
     top: 450px;
     width: 40px;
     height: 30px;
-    background-color: grey;
-    border: 5px solid darkslategrey;
+    /* background-color: grey;
+    border: 5px solid darkslategrey; */
+    background-image: url("img/plat_sml.png");
+    background-size: cover;
 }
 
 #plat6 {
@@ -183,8 +183,10 @@ body {
     top: 400px;
     width: 540px;
     height: 30px;
-    background-color: grey;
-    border: 5px solid darkslategrey;
+    /* background-color: grey;
+    border: 5px solid darkslategrey; */
+    background-image: url("img/plat_lge.png");
+    background-size: cover;
 }
 
 #plat7 {
@@ -192,8 +194,10 @@ body {
     top: 520px;
     width: 100px;
     height: 30px;
-    background-color: grey;
-    border: 5px solid darkslategrey;
+    /* background-color: grey;
+    border: 5px solid darkslategrey; */
+    background-image: url("img/plat_med.png");
+    background-size: cover;
 }
 
 #plat8 {
@@ -201,8 +205,10 @@ body {
     top: 640px;
     width: 100px;
     height: 30px;
-    background-color: grey;
-    border: 5px solid darkslategrey;
+    /* background-color: grey;
+    border: 5px solid darkslategrey; */
+    background-image: url("img/plat_med.png");
+    background-size: cover;
 }
 
 #plat9 {
@@ -210,8 +216,10 @@ body {
     top: 760px;
     width: 100px;
     height: 30px;
-    background-color: grey;
-    border: 5px solid darkslategrey;
+    /* background-color: grey;
+    border: 5px solid darkslategrey; */
+    background-image: url("img/plat_med.png");
+    background-size: cover;
 }
 
 #plat10 {
@@ -219,8 +227,10 @@ body {
     top: 850px;
     width: 350px;
     height: 30px;
-    background-color: #4f3a2b;
-    border-top: 5px solid lightgreen;
+    /* background-color: grey;
+    border: 5px solid darkslategrey; */
+    background-image: url("img/plat_lge.png");
+    background-size: cover;
 }
 
 #plat11 {
@@ -228,8 +238,10 @@ body {
     top: 820px;
     width: 150px;
     height: 30px;
-    background-color: #4f3a2b;
-    border-top: 5px solid lightgreen;
+    /* background-color: grey;
+    border: 5px solid darkslategrey; */
+    background-image: url("img/floor_small.png");
+    background-size: cover;
 }
 
 #plat12 {
@@ -237,8 +249,10 @@ body {
     top: 720px;
     width: 40px;
     height: 30px;
-    background-color: grey;
-    border: 5px solid darkslategrey;
+    /* background-color: grey;
+    border: 5px solid darkslategrey; */
+    background-image: url("img/plat_sml.png");
+    background-size: cover;
 }
 
 #plat13 {
@@ -246,8 +260,10 @@ body {
     top: 620px;
     width: 40px;
     height: 30px;
-    background-color: grey;
-    border: 5px solid darkslategrey;
+    /* background-color: grey;
+    border: 5px solid darkslategrey; */
+    background-image: url("img/plat_sml.png");
+    background-size: cover;
 }
 
 #plat14 {
@@ -255,8 +271,10 @@ body {
     top: 520px;
     width: 40px;
     height: 30px;
-    background-color: grey;
-    border: 5px solid darkslategrey;
+    /* background-color: grey;
+    border: 5px solid darkslategrey; */
+    background-image: url("img/plat_sml.png");
+    background-size: cover;
 }
 
 #plat15 {
@@ -264,8 +282,10 @@ body {
     top: 420px;
     width: 40px;
     height: 30px;
-    background-color: grey;
-    border: 5px solid darkslategrey;
+    /* background-color: grey;
+    border: 5px solid darkslategrey; */
+    background-image: url("img/plat_sml.png");
+    background-size: cover;
 }
 
 #plat16 {
@@ -273,8 +293,10 @@ body {
     top: 320px;
     width: 40px;
     height: 30px;
-    background-color: grey;
-    border: 5px solid darkslategrey;
+  /* background-color: grey;
+    border: 5px solid darkslategrey; */
+    background-image: url("img/plat_sml.png");
+    background-size: cover;
 }
 
 #plat17 {
@@ -282,6 +304,8 @@ body {
     top: 220px;
     width: 500px;
     height: 30px;
-    background-color: grey;
-    border: 5px solid darkslategrey;
+    /* background-color: grey;
+    border: 5px solid darkslategrey; */
+    background-image: url("img/plat_lge.png");
+    background-size: cover;
 }

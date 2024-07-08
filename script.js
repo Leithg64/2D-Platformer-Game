@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const gameContainer = document.getElementById("gameContainer");
     const viewport = document.getElementById("viewport");
     const platforms = document.getElementsByClassName("platform");
-    const hazards = document.getElementsByClassName("hazard"); // Updated to get elements by class
+    const hazards = document.getElementsByClassName("hazard");
+    const goal = document.getElementById("goal"); // Directly select the goal element by ID
 
     const keys = {
         left: false,
@@ -24,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
         xVelocity: 0,
         yVelocity: 0,
         onGround: false,
-        canJump: true  // Flag to track if player can jump
+        canJump: true
     };
 
     function resetPlayer() {
@@ -35,15 +36,28 @@ document.addEventListener("DOMContentLoaded", function() {
         gameContainer.style.transform = 'translateX(0px)';
     }
 
+    // Function to check collision with the goal area
+    function checkGoalCollision() {
+        let playerRect = player.getBoundingClientRect();
+        let goalRect = goal.getBoundingClientRect();
+
+        if (playerRect.right >= goalRect.left &&
+            playerRect.left <= goalRect.right &&
+            playerRect.bottom >= goalRect.top &&
+            playerRect.top <= goalRect.bottom) {
+            window.location.href = 'game_complete.html'; // Redirect to game complete page
+        }
+    }
+
     function update() {
         // Apply gravity
         playerState.yVelocity += settings.gravity;
-        
+
         // Apply horizontal movement
         if (keys.left) playerState.xVelocity = -settings.moveSpeed;
         else if (keys.right) playerState.xVelocity = settings.moveSpeed;
         else playerState.xVelocity *= settings.friction;
-        
+
         // Update player position
         playerState.x += playerState.xVelocity;
         playerState.y += playerState.yVelocity;
@@ -56,11 +70,11 @@ document.addEventListener("DOMContentLoaded", function() {
             let playerRect = player.getBoundingClientRect();
 
             // Simple collision detection
-            if (playerRect.right > platformRect.left && 
-                playerRect.left < platformRect.right && 
-                playerRect.bottom > platformRect.top && 
+            if (playerRect.right > platformRect.left &&
+                playerRect.left < platformRect.right &&
+                playerRect.bottom > platformRect.top &&
                 playerRect.top < platformRect.bottom) {
-                
+
                 if (playerRect.bottom - playerState.yVelocity <= platformRect.top) {
                     playerState.y = platformRect.top - playerRect.height;
                     playerState.yVelocity = 0;
@@ -70,22 +84,25 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
 
+        // Check collision with goal area
+        checkGoalCollision();
+
         // Reset the player if they collide with a hazard
         let playerRect = player.getBoundingClientRect();
         for (let i = 0; i < hazards.length; i++) {
             let hazard = hazards[i];
             let hazardRect = hazard.getBoundingClientRect();
 
-            if (playerRect.right > hazardRect.left && 
-                playerRect.left < hazardRect.right && 
-                playerRect.bottom > hazardRect.top && 
+            if (playerRect.right > hazardRect.left &&
+                playerRect.left < hazardRect.right &&
+                playerRect.bottom > hazardRect.top &&
                 playerRect.top < hazardRect.bottom) {
                 resetPlayer();
             }
         }
 
         // Reset player if they fall out of the game container
-        if (playerState.y + player.offsetHeight > gameContainer.offsetHeight || 
+        if (playerState.y + player.offsetHeight > gameContainer.offsetHeight ||
             playerState.x + player.offsetWidth < 0 || playerState.x > gameContainer.offsetWidth) {
             resetPlayer();
         }
